@@ -28,3 +28,15 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:8069/realms/ylab-test/protocol/openid-connect/certs
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        schema:
+          registry:
+            url: http://localhost:8071
+
+app:
+  topic: audit-topic-v1

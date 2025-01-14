@@ -1,16 +1,20 @@
 package com.example.auth.rest;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.auth.service.UserService;
+import com.example.openapi.api.UserApi;
+import com.example.openapi.model.UserInfo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController {
+@RequiredArgsConstructor
+public class UserController implements UserApi {
 
-    @GetMapping("/user")
-    public OidcUserInfo user(@AuthenticationPrincipal OidcUser principal) {
-        return principal.getUserInfo();
+    private final UserService service;
+
+    @Override
+    public ResponseEntity<UserInfo> getUserInfo() {
+        return ResponseEntity.ok(service.getUserInfo());
     }
 }
