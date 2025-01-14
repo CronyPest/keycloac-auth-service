@@ -1,0 +1,11 @@
+components:
+  schemas:
+    UserInfo:
+      type: object
+      properties:
+        userId:
+          type: string
+        domainUsername:
+          type: string
+        fullName:
+          type: string
