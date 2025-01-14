@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Configuration
 public class KafkaProducerConfig {
+    //todo: переделать отправку через Cloud Stream
 
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;

@@ -10,6 +10,7 @@ import java.util.Map;
 @Service
 public class UserService {
 
+    //todo:  сконфигурировать spring security так, чтобы в контексте уже лежал распарсенный Jwt
     public UserInfo getUserInfo() {
         Jwt token = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Map<String, Object> claims = token.getClaims();

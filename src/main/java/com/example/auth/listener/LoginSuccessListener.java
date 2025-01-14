@@ -16,6 +16,7 @@ import java.util.Map;
 @Component
 @RequiredArgsConstructor
 public class LoginSuccessListener implements ApplicationListener<AuthenticationSuccessEvent> {
+    //todo: Сделать фиксацию пользовательского входа через расширение Keycloak, добавить обработку неудачной аутентификации
 
     private final ActionRecordSender sender;
 
